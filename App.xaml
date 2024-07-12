@@ -10,6 +10,7 @@
         <SolidColorBrush x:Key="TextColor">#FFFFFF</SolidColorBrush>
         <SolidColorBrush x:Key="OverlayColor">#FFFFFF </SolidColorBrush>
         <FontFamily x:Key="MainFont">Assets/#DroidSansMono</FontFamily>
-       
+        <local:BooleanToVisibilityConverter  x:Key="BooleanToVisibilityConverter"/>
+
     </Application.Resources>
 </Application>

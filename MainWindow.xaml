@@ -15,37 +15,49 @@
         Icon="Assets/icon.ico"
         Loaded="Window_Loaded"
         KeyDown="Window_KeyDown">
-    <Viewbox>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
 
-            <TextBlock x:Name="ScoreText"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               Text="Score 0"
-               FontSize="25"
-               Margin="10"/>
-
-            <Border x:Name="GridBorder"
-            Grid.Row="1"
-            BorderBrush="{StaticResource GridLineColor}"
-            BorderThickness="1.5"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Margin="20,0,20,20">
-                <UniformGrid x:Name="GameGrid"
-                     Width="400"
-                     Height="400"
-                     Background="{StaticResource GridBackgroundColor}">
-
-                </UniformGrid>
-
-            </Border>
-
+    <Grid>
+        <!-- Menu Screen -->
+        <Grid x:Name="MenuScreen" Visibility="Visible">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="500" Width="800">
+                <TextBlock Text="Main Menu" FontSize="50" FontWeight="Bold" Margin="240,10,200,300"/>
+                <Button Name="StartGameButton" Content="Start New Game" Width="150" Height="60" Margin="0,-300,0,10" Click="StartGameButton_Click"/>
+                <Button Name="ExitButton" Content="Exit" Width="150" Height="60"  Click="ExitButton_Click"
+                        Margin="0,-250"/>
+            </StackPanel>
         </Grid>
-    </Viewbox>
-    
+
+        <!-- Game Screen -->
+        <Grid x:Name="GameScreen" Visibility="Collapsed">
+            <Viewbox>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="ScoreText"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="Score 0"
+                               FontSize="25"
+                               Margin="10"/>
+
+                    <Border x:Name="GridBorder"
+                            Grid.Row="1"
+                            BorderBrush="{StaticResource GridLineColor}"
+                            BorderThickness="1.5"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Margin="20,0,20,20">
+                        <UniformGrid x:Name="GameGrid"
+                                     Width="400"
+                                     Height="400"
+                                     Background="{StaticResource GridBackgroundColor}">
+                        </UniformGrid>
+                    </Border>
+                </Grid>
+            </Viewbox>
+        </Grid>
+    </Grid>
 </Window>

@@ -39,9 +39,9 @@ namespace WpfSnakeGame
         }
 
         private  void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Draw();
-            GameLoop();     
+        {   // Menu Music Will Be Added
+            //Draw();
+            //GameLoop();     
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -106,6 +106,21 @@ namespace WpfSnakeGame
             DrawGrid();
             ScoreText.Text= $"Score{gameState.Score}";
         }
+
+        private void StartGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuScreen.Visibility = Visibility.Collapsed;
+            GameScreen.Visibility = Visibility.Visible;
+            Draw();
+            _=GameLoop();
+
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
         private void DrawGrid()
         {
             for(int r= 0;r < rows; r++)
