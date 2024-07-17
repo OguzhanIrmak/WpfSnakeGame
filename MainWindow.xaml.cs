@@ -40,8 +40,7 @@ namespace WpfSnakeGame
 
         private  void Window_Loaded(object sender, RoutedEventArgs e)
         {   // Menu Music Will Be Added
-            //Draw();
-            //GameLoop();     
+                 
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -53,6 +52,7 @@ namespace WpfSnakeGame
             switch (e.Key)
             {
                 case Key.Left:
+                    
                     gameState.ChangeDirection(Direction.Left); 
                     break;
                 case Key.Right:
@@ -78,6 +78,7 @@ namespace WpfSnakeGame
                 gameState.Move();
                 Draw();
             }
+            ShowGameOver();
         }
 
         private Image[,] SetupGrid()
@@ -111,6 +112,7 @@ namespace WpfSnakeGame
         {
             MenuScreen.Visibility = Visibility.Collapsed;
             GameScreen.Visibility = Visibility.Visible;
+            gameState =new GameState(rows, columns);
             Draw();
             _=GameLoop();
 
@@ -132,6 +134,21 @@ namespace WpfSnakeGame
                 }
             }
         }
+        private void ShowGameOver()
+        {
+            MessageBoxResult message = MessageBox.Show("Game Over!");
+            if (message == MessageBoxResult.OK)
+            {
+                ReturnToMenu();
+            }
+        }
+
+        private void ReturnToMenu()
+        {
+            MenuScreen.Visibility = Visibility.Visible;
+            GameScreen.Visibility = Visibility.Collapsed;
+        }
+        
     }
 }
 

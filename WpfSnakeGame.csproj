@@ -71,8 +71,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BooleanVisibilityConverter.cs" />
-    <Compile Include="TutorialDirection.cs" />
-    <Compile Include="TutorialPosition.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

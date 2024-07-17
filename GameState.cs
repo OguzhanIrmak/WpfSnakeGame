@@ -91,7 +91,15 @@ namespace WpfSnakeGame
         }
         public void ChangeDirection(Direction dir)
         {
-            Dir= dir;   
+            if ((Dir == Direction.Left && dir == Direction.Right) ||
+                (Dir == Direction.Right && dir == Direction.Left) ||
+                (Dir == Direction.Up && dir == Direction.Down) ||
+                (Dir == Direction.Down && dir == Direction.Up))
+            {
+                
+                return;
+            }
+            Dir = dir;
         }
         private bool OutsideGrid(Position pos)
         {
